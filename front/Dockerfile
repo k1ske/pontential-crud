@@ -6,6 +6,6 @@ COPY . .
 
 RUN yarn --frozen-lockfile
 
-EXPOSE 3001 3001
+EXPOSE 8080 8080
 
 CMD yarn serve

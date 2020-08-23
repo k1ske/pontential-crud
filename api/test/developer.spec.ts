@@ -20,10 +20,10 @@ describe('DeveloperController', () => {
         Injector.resolve<App>(App).terminate();
     });
     
-    it('GET /api/v1/developers', async (done: DoneFn | undefined) => {
+    it('GET /developers', async (done: DoneFn | undefined) => {
         const response: any =
                   await request(app)
-                      .get('/api/v1/developers');
+                      .get('/developers');
         
         expect(response.status).toBe(200);
         expect(response.body?.length).toBeGreaterThan(-1);
@@ -31,10 +31,10 @@ describe('DeveloperController', () => {
         done && done();
     });
     
-    it('GET /api/v1/developers?page=1', async (done: DoneFn | undefined) => {
+    it('GET /developers?page=1', async (done: DoneFn | undefined) => {
         const response: any =
                   await request(app)
-                      .get('/api/v1/developers?page=1');
+                      .get('/developers?page=1');
         
         expect(response.status).toBe(200);
         expect(response.body?.data?.length).toBeGreaterThan(-1);
@@ -50,10 +50,10 @@ describe('DeveloperController', () => {
         datanascimento: '2002-01-01'
     };
     
-    it('POST /api/v1/developers', async (done: DoneFn | undefined) => {
+    it('POST /developers', async (done: DoneFn | undefined) => {
         const response: any =
                   await request(app)
-                      .post('/api/v1/developers')
+                      .post('/developers')
                       .send(developer);
         
         expect(response.status).toBe(200);
@@ -64,10 +64,10 @@ describe('DeveloperController', () => {
         done && done();
     });
     
-    it('GET /api/v1/developers/:id', async (done: DoneFn | undefined) => {
+    it('GET /developers/:id', async (done: DoneFn | undefined) => {
         const response: any =
                   await request(app)
-                      .get(`/api/v1/developers/${developerId}`);
+                      .get(`/developers/${developerId}`);
         
         expect(response.status).toBe(200);
         expect(response.body?.id).toBeDefined();
@@ -75,12 +75,12 @@ describe('DeveloperController', () => {
         done && done();
     });
     
-    it('PUT /api/v1/developers/:id', async (done: DoneFn | undefined) => {
+    it('PUT /developers/:id', async (done: DoneFn | undefined) => {
         developer.nome = 'Test dev edit';
         
         const response: any =
                   await request(app)
-                      .put(`/api/v1/developers/${developerId}`)
+                      .put(`/developers/${developerId}`)
                       .send(developer);
         
         expect(response.status).toBe(200);
@@ -89,10 +89,10 @@ describe('DeveloperController', () => {
         done && done();
     });
     
-    it('DELETE /api/v1/developers/:id', async (done: DoneFn | undefined) => {
+    it('DELETE /developers/:id', async (done: DoneFn | undefined) => {
         const response: any =
                   await request(app)
-                      .delete(`/api/v1/developers/${developerId}`);
+                      .delete(`/developers/${developerId}`);
         
         expect(response.status).toBe(204);
         
