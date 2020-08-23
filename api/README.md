@@ -9,7 +9,7 @@
 1. criar o arquivo '.env' a partir do '.env.example';
 2. executar `docker-compose up`;
 
-Quick? ```cat .env.example > .env && sudo docker-compose up`
+Quick? `cat .env.example > .env && sudo docker-compose up`
 
 A aplicação estará diponível em: http://lolcahost:3000/
 
