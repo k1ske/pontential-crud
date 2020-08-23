@@ -17,4 +17,4 @@ CMD wait && \
     yarn db:seed && \
     yarn test
 
-STOPSIGNAL 0
+STOPSIGNAL SIGTERM
