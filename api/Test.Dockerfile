@@ -16,5 +16,3 @@ CMD wait && \
     yarn db:migrate && \
     yarn db:seed && \
     yarn test
-
-STOPSIGNAL SIGTERM
