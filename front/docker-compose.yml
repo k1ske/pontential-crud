@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - WAIT_VERSION=2.7.3
+        - WAIT_HOSTS=${DB_HOST}:5432
+    ports:
+      - 8080:8080
+    volumes:
+      - nmodules-front:/server/node_modules
+    env_file:
+      - ./.env
+
+volumes:
+  nmodules-front:
+    driver: local

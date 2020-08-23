@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: ./Test.Dockerfile
+      args:
+        - WAIT_VERSION=2.7.3
+        - WAIT_HOSTS=${DB_HOST}:5432
+    depends_on:
+      - database
+    volumes:
+      - .:/server
+    env_file:
+      - ./.env
+
+  database:
+    image: postgres:12.4-alpine
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    env_file:
+      - ./.env
